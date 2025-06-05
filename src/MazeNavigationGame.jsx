@@ -1,8 +1,15 @@
 import React, { useRef, useEffect, useState } from "react";
 
 function MazeNavigationGame() {
+
+  const [start, setStart] = useState(false)
+
   const canvasRef = useRef(null);
   const [pos, setPos] = useState({ x: 10, y: 10 });
+
+  const handleStart = () => {
+    setStart(true)
+  }
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -42,13 +49,27 @@ function MazeNavigationGame() {
   return (
     <div className="game-container">
       <h2 className="game-title">Maze Navigation Game</h2>
-      <canvas
-        ref={canvasRef}
-        width={1000}
-        height={500}
-        className="maze-canvas"
-        onMouseMove={handleMouseMove}
-      />
+
+      {
+        start
+        ?
+        (
+          <canvas
+            ref={canvasRef}
+            width={1000}
+            height={500}
+            className="maze-canvas"
+            onMouseMove={handleMouseMove}
+          />
+        )
+        :
+        (
+          <div>
+            <button onClick={handleStart} >Start</button>
+          </div>
+        )
+      }
+
     </div>
   );
 }
