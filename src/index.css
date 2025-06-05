@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.loginContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  height: 90vh;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.inputFields{
+  font-size: 2rem;
+  margin: 1% 0%;
+}
